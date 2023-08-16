@@ -1,0 +1,32 @@
+ALGORITHM compte_phrase
+VAR
+    phrase: STRING;
+    nbr_voyel, nbr_mots, i : INTEGER;
+
+BEGIN
+    WRITE( "ECRIVEZ UNE PHRASE:")
+    READ(phrase)
+    nbr_mots := 1;
+    nbr_voyel:=0;
+
+    // je parcours toute la phrase saisi par l'utulisateur avec une boucle for
+    FOR i FROM 1 TO length(phrase) STEP step  DO 
+          WHILE (phrase[length(phrase)] != '.') DO // tant que le dernier caractere n'est pas un point je considère le phrase incorrect
+            WRITE("votre phrase est incompléte, merci de saisir un point(.)")
+        END_WHILE
+    
+        IF (phrase[i]=== ' ') THEN // si le caractére un espace alors je compte un mot
+            nbr_mots := nbr_mots + 1;
+        ELSE_IF (phrase[i] === 'a' OR 'i' OR 'e' OR 'o' OR 'u' OR 'y') THEN 
+            nbr_voyel := nbr_voyel + 1 ;
+            // si le caractére est une voyelle alors je compte la voyelle dans la variable nbr_voyel
+        END_IF
+
+        WRITE("le nombre de caractéres dans la phrase est:" length(phrase))
+        WRITE("le nombre de mots dans la phrase est:" nbr_mots)
+        WRITE("le nombre de voyelles dans la phrase est :" nbr_voyel)
+    
+    END_FOR
+   
+
+END
